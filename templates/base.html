@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <title>{% block title %}Forums{% endblock %}</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1><a href="{% url 'homepage' %}">Home</a></h1>
+
+            <nav>
+                <ul>
+                    <li><a href="{% url 'homepage' %}">Home</a></li>
+
+                    {% if user.is_authenticated %}
+                    <h1><a href="{% url 'add_mavzu' %}">Forum Qo'shish</a></h1>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                        <li><a href="{% url 'register' %}">Register</a></li>
+
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content block -->
+    <main>
+       {% block data %}
+
+
+{% endblock data %}
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; {{ current_year }} My Django Site. All rights reserved.</p>
+            <p><a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+

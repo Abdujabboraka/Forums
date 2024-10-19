@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block title %} {{ mavzu.title }} {% endblock %}
+{% block data %}
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">
+<div class="detail-box">
+    <div class="author">
+        <h2><img src="{% static 'user/user.png' %}" alt="User"> {{ m.user }}</h2>
+    </div>
+
+    <h2>{{ mavzu.title }}</h2>
+
+    {% if mavzu.image %}
+        <img src="{{ mavzu.image.url }}" alt="{{ mavzu.title }}">
+        {% else %}
+    <p>No image.</p>
+    {% endif %}
+
+    <p>{{ mavzu.content }}</p>
+
+    <h3>Comments:</h3>
+
+    {% if comments %}
+        {% for comment in comments %}
+            <p><img class="profile" src="{% static 'user/user.png' %}" alt="User"> <strong>{{ comment.author }}:</strong> {{ comment.content }}</p>
+        {% endfor %}
+    {% else %}
+        <p>No comments yet. Be the first to comment!</p>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+    <form method="POST">
+        {% csrf_token %}
+        <textarea name="content" placeholder="Write a comment..." required></textarea>
+        <button type="submit">Comment</button>
+    </form>
+    {% else %}
+    <p>Please <a href="{% url 'login' %}">log in</a> to comment.</p>
+    {% endif %}
+</div>
+{% endblock data %}

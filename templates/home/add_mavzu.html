@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block data %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/add.css' %}">
+<div class="box-container">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock data %}

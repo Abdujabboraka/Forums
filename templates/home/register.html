@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+
+
+{% block data %}
+<style>
+    .register-form {
+    max-width: 400px; /* Set max width for the form */
+    margin: 50px auto; /* Center the form horizontally */
+    padding: 20px; /* Add padding */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    background-color: #f9f9f9; /* Light background color */
+}
+
+.register-form h2 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.register-form form {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+}
+
+.register-form button {
+    margin-top: 10px; /* Space above the button */
+    padding: 10px; /* Add padding */
+    font-size: 16px; /* Increase font size */
+    cursor: pointer; /* Pointer on hover */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners for the button */
+    transition: background-color 0.3s; /* Smooth background color change */
+}
+
+.register-form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    color: white; /* White text color on hover */
+}
+
+.register-form p {
+    text-align: center; /* Center text in any paragraph tags */
+}
+
+</style>
+    <div class="register-form">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Ro'yhatdan o'tish</button>
+        </form>
+    </div>
+{% endblock data %}

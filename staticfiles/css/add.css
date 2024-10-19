@@ -1,0 +1,42 @@
+/* Styles for the box container */
+.box-container {
+    background-color: #f8f9fa; /* Light background for the container */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px; /* Space inside the container */
+    margin: 20px auto; /* Centering the container with margins */
+    max-width: 600px; /* Limit the width */
+}
+
+/* Styles for the form elements */
+.box-container form {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+}
+
+/* Styles for input fields */
+.box-container input[type="text"],
+.box-container textarea {
+    border: 1px solid #ced4da; /* Light gray border */
+    border-radius: 4px; /* Rounded corners for inputs */
+    padding: 10px; /* Padding inside inputs */
+    margin-bottom: 15px; /* Space below each input */
+    font-size: 16px; /* Font size */
+}
+
+/* Styles for the submit button */
+.box-container button {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px; /* Padding */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Change background color on hover */
+.box-container button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}

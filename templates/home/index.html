@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block title %}Forums{% endblock %}
+{% block data %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}"  >
+<div class="manvzu-container">
+    {% for m in mavzular %}
+        <div class="middle menu">
+            <div class="author-foto"><h2><img src="{% static 'user/user.png' %}"> {{ m.user }}</h2></div>
+            <h1>{{ m.title }}</h1>
+             {% if mavzu.image %}
+                <img src="{{ m.image.url }}" alt="{{ m.title }}">
+                 {% else %}
+                 {% endif %}
+            <p>{{ m.content|truncatewords:10 }}</p>
+            <h4>{{ m.created }}</h4>
+            <a href="{% url 'detail' m.id %}">Batafsil</a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock data %}
